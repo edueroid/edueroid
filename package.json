@@ -1,0 +1,29 @@
+{
+  "name": "edueroid",
+  "version": "1.0.0",
+  "description": "An educational platform",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edueroid/edueroid.git"
+  },
+  "keywords": [
+    "website"
+  ],
+  "author": "Team Edueroid",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/edueroid/edueroid/issues"
+  },
+  "homepage": "https://github.com/edueroid/edueroid#readme",
+  "dependencies": {
+    "bootstrap": "^4.1.3",
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.0",
+    "jquery": "^3.3.1",
+    "popper.js": "^1.14.5"
+  }
+}

@@ -1,2 +1,2 @@
-# edueroid
-Let's together make it possible!
+# Edueroid
+An educational platform!
