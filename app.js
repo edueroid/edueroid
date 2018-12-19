@@ -1,5 +1,12 @@
 "use strict";
 
+// Products Route import
+const productRoutes = require('./api/routes/products');
+
+// Orders Route import
+const orderRoutes = require('./api/routes/orders');
+
+
 // Import the required modules
 const express = require('express'),
 	  exphbs = require('express-handlebars'),
@@ -33,3 +40,12 @@ app.listen(PORT, function() {
 	console.log("[INFO]: The server has been started and is listening.");
 	console.log("[INFO]: At: http://localhost:" + PORT + ".");
 })
+
+// Request handling to root products
+app.use('/products', productRoutes);
+
+// Request handling to route orders
+app.use('/orders', orderRoutes);
+
+
+module.exports = app;
