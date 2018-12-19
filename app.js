@@ -6,6 +6,8 @@ const productRoutes = require('./api/routes/products');
 // Orders Route import
 const orderRoutes = require('./api/routes/orders');
 
+// Logging service MORGAN
+const morgan = require('morgan');
 
 // Import the required modules
 const express = require('express'),
@@ -19,6 +21,9 @@ const PORT = 3036;
 var handlebars = exphbs.create({
 	defaultLayout: 'main'
 });
+
+// Using MORGAN to log INFO about all requests
+app.use(morgan('dev'));
 
 // Link our Handlebars Engine to ExpressJS
 app.engine('handlebars', handlebars.engine);
@@ -46,6 +51,26 @@ app.use('/products', productRoutes);
 
 // Request handling to route orders
 app.use('/orders', orderRoutes);
+
+// 
+// Handle ERRORS and not existing routes
+//
+app.use((req, res, next) => {
+	const error = new Error('Not found!');
+	error.status = 404;
+	next(error);
+});
+
+// Custom Error message
+app.use((error, req, res, next) => {
+	res.status(error.status || 500);
+	res.json({
+		error: {
+			message: error.message
+		}
+	});
+});
+
 
 
 module.exports = app;
